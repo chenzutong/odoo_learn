@@ -26,6 +26,10 @@
         <field name="model">epidemic.record</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button string="测试按钮1" type="object" class="oe_highlight" name="myunlink"/>
+                    <button string="搜索按钮" type="object" class="oe_highlight" name="mysearch"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -47,13 +51,14 @@
                             <field name="county"/>
                             <field name="street" required="1"/>
                             <field name="create_user_id" readonly="1"/>
+                            <field name="fuzhu_create_user_ids" string="辅助填报人" widget="many2many_tags" options="{'no_create': True, 'no_edit': True}"/>
+                            <field name="test_float"/>
+                            <field name="test_int"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="说明">
                             <field name="note" placeholder="其他信息"/>
-                            <field name="test_float"/>
-                            <field name="test_int"/>
                         </page>
                     </notebook>
                 </sheet>
