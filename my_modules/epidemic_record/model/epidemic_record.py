@@ -5,6 +5,7 @@ from odoo import models, fields, api
 
 class EpidemicRecord(models.Model):
     _name = 'epidemic.record'
+    _description = 'epidemic'
 
     def _default_create_user_id(self):
         return self.env.uid
@@ -74,4 +75,18 @@ class EpidemicRecord(models.Model):
         # print(objs, objs2)
         users_objs = self.env['res.users'].sudo().browse([2, 2])
         print('users_objs', users_objs)
+
+    def create_or_write(self):
+        """演示 orm操作 write和create"""
+        # res = self.env['res.users'].create({
+        #     'name': '测试账户1',
+        #     'email': 'ceshizhanghu@1.com',
+        #     'login': 'ceshizhanghu@1.com'
+        # })
+        users_env = self.env['res.users']
+        user_id = users_env.search([('name', '=', '测试账户1')])
+        # 记录集在调用write方法时，只能是一条记录，如果记录集中包含多条记录则需要遍历
+        res = user_id.write({
+            'login': 'ceshizhanghu@163.com'
+        })
 

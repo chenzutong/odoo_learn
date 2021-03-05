@@ -22,7 +22,8 @@
     'depends': [],
 
     # always loaded
-    'data': [
+    'data':[
+        'security/epidemic_record_security.xml',
         'views/epidemic_record_view.xml',
         'security/ir.model.access.csv',
 

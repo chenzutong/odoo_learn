@@ -29,6 +29,7 @@
                 <header>
                     <button string="测试按钮1" type="object" class="oe_highlight" name="myunlink"/>
                     <button string="搜索按钮" type="object" class="oe_highlight" name="mysearch"/>
+                    <button string="创建或修改" type="object" class="oe_highlight" name="create_or_write"/>
                 </header>
                 <sheet>
                     <group>
@@ -118,8 +119,14 @@
           <field name="view_mode">tree,form,pivot,graph</field>
       </record>
 
-      <menuitem name="疫情记录" id="epidemic_record_menu_root" groups="base.group_user" sequence="10"/>
-      <menuitem name="疫情记录" id="sec_epidemic_record_menu" parent="epidemic_record_menu_root"
-                action="epidemic_record_act_window" sequence="10"/>
+      <menuitem name="疫情记录"
+                id="epidemic_record_menu_root"
+                groups="epidemic_record.group_base,epidemic_record.group_manager"
+                sequence="10"/>
+      <menuitem name="疫情记录"
+                id="sec_epidemic_record_menu"
+                parent="epidemic_record_menu_root"
+                action="epidemic_record_act_window"
+                sequence="10"/>
   </data>
 </odoo>
